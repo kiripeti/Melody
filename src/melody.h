@@ -1,3 +1,6 @@
+#ifndef MELODY_H
+#define MELODY_H
+
 #include <ArduinoSTL.h>
 #include "pitches.h"
 
@@ -6,51 +9,21 @@ class Note {
         int _note, _duration;
 
     public:
-        Note(int note, int duration) {
-            _note = note;
-            _duration = duration;
-        }
-
-        getNote() {
-            return _note;
-        }
-
-        getDuration() {
-            return _duration;
-        }
+        Note(int note, int duration);
+        int getNote();
+        int getDuration();
 };
 
 class Melody {
     private:
         std::vector<Note> _notes;
         int _twitter;
-
-        void playNote(Note note) {
-            int noteDuration = 1000 / note.getDuration();
-            tone(_twitter, note.getNote(), noteDuration);
-
-            int pauseBetweenNotes = noteDuration * 1.30;
-            delay(pauseBetweenNotes);
-
-            noTone(_twitter);
-        }
+        void playNote(Note note);
 
     public:
-        void attach(int pin) {
-            _twitter = pin;
-        }
-
-        void addNote(Note note) {
-            _notes.push_back(note);
-        }
-
-        void play() {
-            if (_twitter == 0) {
-                return;
-            }
-
-            for (Note note : _notes) {
-                playNote(note);
-            }
-        }
+        void attach(int pin);
+        void addNote(Note note);
+        void play();
 };
+
+#endif
