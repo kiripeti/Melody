@@ -1,4 +1,5 @@
 #include <melody.h>
+#include <Arduino.h>
 
 Note::Note(int note, int duration) {
     _note = note;
