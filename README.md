@@ -36,7 +36,7 @@ It has only a default constructor, and has three methods:
 The example below does exactly the same as the code in [TomeMelody](https://www.arduino.cc/en/Tutorial/toneMelody)
 
 ```c++
-#include "melody.h"
+#include <melody.h>
 
 const int twitter = 5;
 Melody melody;
