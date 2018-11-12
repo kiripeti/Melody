@@ -18,12 +18,13 @@ class Melody {
     private:
         std::vector<Note> _notes;
         int _twitter;
-        void playNote(Note note);
+        void playNote(Note note, int pin);
 
     public:
         void attach(int pin);
         void addNote(Note note);
         void play();
+        void playOnPin(int pin);
 };
 
 #endif

@@ -14,14 +14,14 @@ int Note::getDuration() {
     return _duration;
 }
 
-void Melody::playNote(Note note) {
+void Melody::playNote(Note note, int pin) {
     int noteDuration = 1000 / note.getDuration();
-    tone(_twitter, note.getNote(), noteDuration);
+    tone(pin, note.getNote(), noteDuration);
 
     int pauseBetweenNotes = noteDuration * 1.30;
     delay(pauseBetweenNotes);
 
-    noTone(_twitter);
+    noTone(pin);
 }
 
 void Melody::attach(int pin) {
@@ -38,6 +38,16 @@ void Melody::play() {
     }
 
     for (Note note : _notes) {
-        playNote(note);
+        playNote(note, _twitter);
+    }
+}
+
+void Melody::playOnPin(int pin) {
+    if (pin == 0) {
+        return;
+    }
+
+    for (Note note : _notes) {
+        playNote(note, pin);
     }
 }
