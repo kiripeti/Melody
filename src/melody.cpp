@@ -6,11 +6,11 @@ Note::Note(int note, int duration) {
     _duration = duration;
 }
 
-Note::getNote() {
+int Note::getNote() {
     return _note;
 }
 
-Note::getDuration() {
+int Note::getDuration() {
     return _duration;
 }
 
