@@ -30,6 +30,7 @@ It has only a default constructor, and has three methods:
 1. `void attach(int)`: Attach the pin with the buzzer on it.
 2. `void addNote(Note)`: Add a Note to the end of your melody.
 3. `void play()`: Play your melody.
+3. `void play(int)`: Play your melody on selected pin.
 
 # Example
 
